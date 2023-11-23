@@ -1,0 +1,42 @@
+{
+  "name": "@tadashi/mongo-util",
+  "version": "1.0.0",
+  "description": "A generic CRUD (Create, Read, Update, Delete) operations handler for MongoDB and some mixins.",
+  "type": "module",
+  "exports": "./src/main.js",
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "mongodb",
+    "util",
+    "lib",
+    "mixin"
+  ],
+  "author": "Thiago Lagden",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "eslint": "eslint --ignore-path .gitignore .",
+    "pretest": "npm run eslint",
+    "test": "c8 --reporter=text --reporter=text-summary --reporter=lcovonly --reporter=cobertura node --test test/*.spec.js"
+  },
+  "dependencies": {
+    "@tadashi/json2mongo": "4.0.0",
+    "@tadashi/mongo-cursor-pagination": "2.3.0",
+    "@tadashi/mongo-singleton": "5.0.0",
+    "debug": "4.3.4",
+    "mongodb": "6.3.0"
+  },
+  "devDependencies": {
+    "c8": "8.0.1",
+    "eslint": "8.54.0",
+    "eslint-plugin-sonarjs": "0.23.0",
+    "eslint-plugin-unicorn": "49.0.0",
+    "mongodb-memory-server": "9.1.1"
+  }
+}
