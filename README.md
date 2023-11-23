@@ -9,8 +9,8 @@
 [npm]:             https://www.npmjs.com/package/@tadashi/mongo-util
 [ci-img]:          https://github.com/lagden/mongo-util/actions/workflows/nodejs.yml/badge.svg
 [ci]:              https://github.com/lagden/mongo-util/actions/workflows/nodejs.yml
-[coveralls-img]:   https://coveralls.io/repos/github/lagden/mongo-util/badge.svg?branch=master
-[coveralls]:       https://coveralls.io/github/lagden/mongo-util?branch=master
+[coveralls-img]:   https://coveralls.io/repos/github/lagden/mongo-util/badge.svg?branch=main
+[coveralls]:       https://coveralls.io/github/lagden/mongo-util?branch=main
 
 -----
 
