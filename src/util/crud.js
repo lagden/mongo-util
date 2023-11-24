@@ -26,7 +26,6 @@ class Crud {
 	constructor(collectionName, dbName) {
 		this.collectionName = collectionName
 		this.dbName = dbName
-		this.indexes = false
 	}
 
 	/**
@@ -35,12 +34,9 @@ class Crud {
 	 * @param {Array} idxs - An array of index specifications.
 	 * @returns {Promise<Object>} A promise that resolves to the MongoDB collection instance with indexes created.
 	 */
-	async createIndexes(idxs) {
+	async createIndexes(idxs = []) {
 		const collection = await Crud.#collection(this.collectionName, this.dbName)
-		if (this.indexes === false) {
-			await collection.createIndexes(idxs, {writeConcern: {w: 1}})
-			this.indexes = true
-		}
+		await collection.createIndexes(idxs, {writeConcern: {w: 1}})
 		return collection
 	}
 

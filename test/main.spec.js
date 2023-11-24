@@ -64,4 +64,27 @@ describe('main', async () => {
 		const rm = await repo._delete(read[0]._id, {type: 'message'})
 		assert.equal(rm.deletedCount, 1)
 	})
+
+	it('index', async () => {
+		const collection = await repo.collection()
+		const idxBefore = await collection.listIndexes()
+		for await (const idx of idxBefore) {
+			console.log('idxBefore', idx)
+		}
+		await collection.createIndex({text: 'text'})
+		await collection.createIndexes([{
+			key: {
+				date: 1,
+			},
+			unique: false,
+			name: 'date_idx',
+		}])
+		const idxAfter = await collection.listIndexes()
+		for await (const idx of idxAfter) {
+			console.log('idxAfter', idx)
+		}
+
+		const exist = await collection.indexExists('date_idx')
+		assert.ok(exist)
+	})
 })

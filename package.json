@@ -1,6 +1,6 @@
 {
   "name": "@tadashi/mongo-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A generic CRUD (Create, Read, Update, Delete) operations handler for MongoDB and some mixins.",
   "type": "module",
   "exports": "./src/main.js",
