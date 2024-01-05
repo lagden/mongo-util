@@ -27,6 +27,7 @@ describe('main', async () => {
 	const repo = new Message(collection, db)
 
 	after(async () => {
+		await Mongo.close()
 		await mongod.stop()
 		process.exit()
 	})
