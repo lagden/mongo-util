@@ -3,7 +3,6 @@ import process from 'node:process'
 import {describe, it, after} from 'node:test'
 import assert from 'node:assert/strict'
 import {MongoMemoryServer} from 'mongodb-memory-server'
-import Mongo from '@tadashi/mongo-singleton'
 
 import {talk} from './fixture/chat.js'
 import Message from './fixture/message.js'
@@ -20,14 +19,13 @@ const mongod = await MongoMemoryServer.create({
 
 describe('main', async () => {
 	const mongoConn = await mongod.getUri()
-	await Mongo.conn({url: mongoConn})
-
 	const collection = 'chat'
 	const db = 'unit_test'
 	const repo = new Message(collection, db)
+	await repo.conn({url: mongoConn})
 
 	after(async () => {
-		await Mongo.close()
+		await repo.client.close()
 		await mongod.stop()
 		process.exit()
 	})

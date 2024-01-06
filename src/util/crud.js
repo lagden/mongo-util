@@ -3,7 +3,7 @@ import Mongo from '@tadashi/mongo-singleton'
 /**
  * Class representing a generic CRUD (Create, Read, Update, Delete) operations handler for MongoDB.
  */
-class Crud {
+export default class Crud {
 	/**
 	 * Retrieves a MongoDB collection instance based on the provided collection name and database name.
 	 *
@@ -15,6 +15,26 @@ class Crud {
 	 */
 	static #collection(collectionName, dbName) {
 		return Mongo.collection(collectionName, {dbName})
+	}
+
+	/**
+	 * Establishes a MongoDB connection using the provided arguments.
+	 *
+	 * @param {Object} args - Connection parameters.
+	 * @returns {Promise<MongoClient>} - MongoDB client instance.
+	 */
+	conn(args = {}) {
+		return Mongo.conn(args)
+	}
+
+	/**
+	 * Retrieves the MongoDB client instance.
+	 *
+	 * @type {MongoClient}
+	 * @readonly
+	 */
+	get client() {
+		return Mongo.client()
 	}
 
 	/**
@@ -52,5 +72,3 @@ class Crud {
 		return collection[method](data, {writeConcern: {w: 1}})
 	}
 }
-
-export default Crud

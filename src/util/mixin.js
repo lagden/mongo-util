@@ -9,7 +9,7 @@ import * as debug from '../lib/debug.js'
  * @param {class} Base - The base class to extend with pagination functionality.
  * @returns {class} The extended class with pagination functionality.
  */
-const pageMixin = Base => class extends Base {
+export const pageMixin = Base => class extends Base {
 	/**
 	 * Paginates through MongoDB documents based on the provided arguments.
 	 *
@@ -60,7 +60,7 @@ const pageMixin = Base => class extends Base {
  * @param {class} Base - The base class to extend with read functionality.
  * @returns {class} The extended class with read functionality.
  */
-const readMixin = Base => class extends Base {
+export const readMixin = Base => class extends Base {
 	/**
 	 * Reads documents from the MongoDB collection based on the provided properties.
 	 *
@@ -83,7 +83,7 @@ const readMixin = Base => class extends Base {
  * @param {class} Base - The base class to extend with delete functionality.
  * @returns {class} The extended class with delete functionality.
  */
-const deleteMixin = Base => class extends Base {	/**
+export const deleteMixin = Base => class extends Base {	/**
 	* Deletes a document from the MongoDB collection based on the provided ID and properties.
 	*
 	* @param {string} _id - The ID of the document to delete.
@@ -104,10 +104,4 @@ const deleteMixin = Base => class extends Base {	/**
 			},
 		})
 	}
-}
-
-export {
-	pageMixin,
-	readMixin,
-	deleteMixin,
 }

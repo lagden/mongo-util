@@ -13,7 +13,7 @@ dependencies:
     version: 2.3.0(mongodb@6.3.0)
   '@tadashi/mongo-singleton':
     specifier: '*'
-    version: 6.0.2(@tadashi/docker-secrets@1.1.0)(mongodb@6.3.0)
+    version: 6.0.3(@tadashi/docker-secrets@1.1.0)(mongodb@6.3.0)
   debug:
     specifier: 4.3.4
     version: 4.3.4
@@ -202,8 +202,8 @@ packages:
       projection-utils: 1.1.0
     dev: false
 
-  /@tadashi/mongo-singleton@6.0.2(@tadashi/docker-secrets@1.1.0)(mongodb@6.3.0):
-    resolution: {integrity: sha512-fFhyOzIW3I+qWhh6WS1GZ3mvy8oNQ7Z+LO48V7SlkPu2ag4z/mzMScinfMgImIW+6CN5OX73Z+OKxSSRNPPHLw==}
+  /@tadashi/mongo-singleton@6.0.3(@tadashi/docker-secrets@1.1.0)(mongodb@6.3.0):
+    resolution: {integrity: sha512-0GqzWceAaUFCjt339LVDNj25ElPmA7SAghdRIVtrJfQe/N2TTNgfPyDViTiY9DfLYiJftfxdtfYiIXuzIb5Q7A==}
     engines: {node: '>=18'}
     peerDependencies:
       '@tadashi/docker-secrets': '*'
