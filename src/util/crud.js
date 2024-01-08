@@ -20,10 +20,11 @@ export default class Crud {
 	/**
 	 * Establishes a MongoDB connection using the provided arguments.
 	 *
+	 * @static
 	 * @param {Object} args - Connection parameters.
 	 * @returns {Promise<MongoClient>} - MongoDB client instance.
 	 */
-	conn(args = {}) {
+	static conn(args = {}) {
 		return Mongo.conn(args)
 	}
 
