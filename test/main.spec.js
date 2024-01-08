@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/no-process-exit */
-import process from 'node:process'
 import {describe, it, after} from 'node:test'
 import assert from 'node:assert/strict'
 import {MongoMemoryServer} from 'mongodb-memory-server'
@@ -19,15 +17,15 @@ const mongod = await MongoMemoryServer.create({
 
 describe('main', async () => {
 	const mongoConn = await mongod.getUri()
+	await Message.conn({url: mongoConn, directConnection: true})
+
 	const collection = 'chat'
 	const db = 'unit_test'
 	const repo = new Message(collection, db)
-	await repo.conn({url: mongoConn})
 
 	after(async () => {
 		await repo.client.close()
 		await mongod.stop()
-		process.exit()
 	})
 
 	it('create', async () => {
